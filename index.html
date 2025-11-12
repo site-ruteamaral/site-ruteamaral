@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --brand:#0f3d33;
@@ -35,6 +34,8 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1100px;margin:auto;padding:24px}
+
+    /* HEADER */
     header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e8eee9}
     .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
     .logo{display:flex;align-items:center;gap:14px}
@@ -45,20 +46,26 @@
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:var(--brand);color:#fff}
     .btn-outline{background:#fff;border-color:#dbe7e0;color:var(--brand)}
+
+    /* HERO */
     .hero{padding:72px 0;background:linear-gradient(180deg,#ffffff, #f2f7f4)}
     .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
     .badge{display:inline-block;background:var(--accent);color:var(--brand);padding:8px 12px;border-radius:999px;font-weight:600}
     h1{font-size:42px;line-height:1.1;margin:14px 0 10px}
     .lead{font-size:18px;color:#31433d;margin:0 0 22px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{background:#fff;border:1px solid #e5efe8;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+
+    /* GERAIS DE SECÇÕES */
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 8px}
     .section-sub{color:var(--muted);margin:0 0 24px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:#fff;border:1px solid #e5efe8;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:18px}
     .list{margin:0;padding-left:18px;color:#41524b}
 
-    /* Fade-in animation */
+    /* FADE-IN nas secções */
     .fade-section{opacity:0;transform:translateY(40px);transition:all 1s ease;}
     .fade-section.visible{opacity:1;transform:translateY(0);}
 
@@ -78,12 +85,30 @@
     .caption{text-align:center;margin-top:8px;font-weight:600;color:#0f3d33}
     .caption small{display:block;color:#6b7c74;font-weight:500}
 
+    /* TESTEMUNHOS */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{font-style:italic;color:#2e3b36}
+
+    /* FORMULÁRIO */
+    form{display:grid;gap:12px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #dbe7e0;background:#fff;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    label{font-weight:600;color:#2a3934}
+    .consent{display:flex;gap:10px;align-items:flex-start;color:#41524b}
+
+    /* FOOTER */
     footer{padding:30px 0;background:#0e2f28;color:#cfe2da;font-family:Arial,sans-serif}
     footer a{color:#fff;text-decoration:underline}
     .foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
     .legal{margin-top:20px;font-size:12px;line-height:1.5;color:#d7e6e0;text-align:justify;}
-    @media (max-width:980px){
+
+    /* RESPONSIVO */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
       .about{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      h1{font-size:34px}
       .profile img{width:70%}
     }
   </style>
@@ -93,7 +118,7 @@
   <header>
     <div class="container nav">
       <div class="logo">
-        <img src="logo.png" alt="Logótipo DS" />
+        <img src="logo.png" alt="Decisões e Soluções Setúbal — Logótipo" />
         <div>
           <div class="brand-title">Decisões e Soluções — Setúbal</div>
           <small>Consultoria de Crédito</small>
@@ -101,38 +126,41 @@
       </div>
       <div class="contact-top">
         <a class="btn btn-outline" href="tel:+351937428403">Ligar: 937 428 403</a>
-        <a class="btn btn-outline" href="mailto:ruteamaral@decisoesesolucoes.com">Email</a>
-        <a class="btn btn-primary" href="https://wa.me/351937428403" target="_blank">WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:ruteamaral@decisoesesolucoes.com?subject=Contacto%20via%20site">Email</a>
+        <a class="btn btn-primary" href="https://wa.me/351937428403?text=Olá%20Rute%2C%20quero%20uma%20simulação." target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="container hero-wrap">
       <div>
         <span class="badge">Atendimento personalizado • Resposta rápida</span>
         <h1>Rute Amaral — Consultora de Crédito</h1>
-        <p class="lead">Acompanho-te do início ao fim: análise de perfil, simulação, aprovação e acompanhamento até à assinatura. Trabalhamos em parceria com os principais bancos para conseguir as melhores condições.</p>
+        <p class="lead">Acompanho-te do início ao fim: análise de perfil, simulação, aprovação e acompanhamento até à assinatura. Trabalhamos em parceria com os principais bancos para conseguir <strong>as melhores condições</strong>.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#simulacao">Pedir simulação</a>
           <a class="btn btn-outline" href="#servicos">Ver serviços</a>
         </div>
+        <div style="margin-top:12px;color:#50625a">Nº de contacto: <strong>937 428 403</strong></div>
       </div>
+      <div class="hero-card kv" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- SOBRE MIM -->
+  <!-- SOBRE MIM (ANTES DOS SERVIÇOS) -->
   <section id="sobre" class="fade-section">
     <div class="container about">
       <div>
         <h2 class="section-title">Sobre mim</h2>
+        <p class="section-sub">Profissionalismo com proximidade — foco total no teu objetivo.</p>
         <p>Sou <strong>Rute Amaral</strong>, consultora de crédito na <strong>Decisões e Soluções — Setúbal</strong>. A minha missão é ajudar cada cliente a alcançar os seus objetivos financeiros com segurança, clareza e tranquilidade.</p>
-        <p>Com experiência na área da intermediação de crédito, ofereço acompanhamento personalizado em todas as fases — desde a análise inicial até à aprovação final — garantindo que cada decisão é informada e vantajosa.</p>
-        <p>Trabalho diariamente com várias instituições bancárias para comparar condições e apresentar propostas adaptadas a cada perfil, sem custos para o cliente.</p>
+        <p>Com experiência na área da intermediação de crédito, ofereço <strong>acompanhamento personalizado em todas as fases</strong> — desde a análise inicial até à aprovação final — garantindo que cada decisão é informada e vantajosa.</p>
+        <p>Trabalho diariamente com várias instituições bancárias para <strong>comparar condições</strong> e apresentar propostas adaptadas a cada perfil, <strong>sem custos para o cliente</strong>. Mais do que números, valorizo relações de confiança e processos simples, para que o caminho até ao teu objetivo seja mais leve e seguro.</p>
       </div>
       <figure class="profile">
-        <img src="rute.jpg" alt="Rute Amaral — Consultora de Crédito">
+        <img src="rute.jpg" alt="Rute Amaral — Consultora de Crédito" />
         <figcaption class="caption">Rute Amaral <small>Consultora de Crédito</small></figcaption>
       </figure>
     </div>
@@ -172,7 +200,20 @@
     </div>
   </section>
 
-  <!-- SIMULAÇÃO -->
+  <!-- TESTEMUNHOS (REPOSTOS) -->
+  <section id="testemunhos" class="fade-section">
+    <div class="container">
+      <h2 class="section-title">O que os clientes dizem</h2>
+      <p class="section-sub">Algumas opiniões de quem já trabalhou comigo.</p>
+      <div class="testimonials">
+        <div class="card"><p class="quote">“Conseguiu-nos uma taxa melhor do que esperávamos e tratou de tudo. Recomendo!”</p><small>— M. Santos</small></div>
+        <div class="card"><p class="quote">“Processo claro e rápido. A Rute explicou cada passo e poupámos tempo e dinheiro.”</p><small>— M. & J. Almeida</small></div>
+        <div class="card"><p class="quote">“Excelente acompanhamento no crédito habitação.”</p><small>— M. Carvalho</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULAÇÃO (IGUAL À VERSÃO ORIGINAL) -->
   <section id="simulacao" class="fade-section">
     <div class="container">
       <h2 class="section-title">Pedir simulação</h2>
@@ -225,19 +266,32 @@
         <a href="tel:+351937428403">937 428 403</a> • 
         <a href="https://wa.me/351937428403" target="_blank">WhatsApp</a><br>
         Redes: 
-        <a href="https://www.instagram.com/mrsrutxinhaaoliveiraamaral" target="_blank">Instagram</a> · 
-        <a href="https://www.facebook.com/share/1BYmzrR6cH" target="_blank">Facebook</a> · 
-        <a href="https://www.linkedin.com/in/rute-oliveira-amaral-ba734723b" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/mrsrutxinhaaoliveiraamaral?igsh=anF0c3E3ZW0wOTIw&utm_source=qr" target="_blank">Instagram</a> · 
+        <a href="https://www.facebook.com/share/1BYmzrR6cH/?mibextid=wwXIfr" target="_blank">Facebook</a> · 
+        <a href="https://www.linkedin.com/in/rute-oliveira-amaral-ba734723b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
       </div>
     </div>
     <div class="legal">
-      ITINERANTES OPORTUNIDADES LDA., licença AMI nº. 21119 | Intermediário de Crédito Vinculado, com o registo nº. 7076, autorizado pelo Banco de Portugal ...  
+      ITINERANTES OPORTUNIDADES LDA., licença AMI nº. 21119 | Intermediário de Crédito Vinculado, com o registo nº. 7076, autorizado pelo Banco de Portugal para a prestação de serviços de consultoria e autorizado para a prestação de serviços de intermediação de crédito (Apresentação ou proposta de contratos de crédito a consumidores; Assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos). Contratos de crédito abrangidos: Crédito à Habitação e Crédito aos Consumidores. Mutuantes ou grupos de mutuantes com quem mantém contrato de vinculação: BANCO BPI S.A., NOVO BANCO, S.A., ABANCA, UCI, CAIXA GERAL DE DEPÓSITOS, BANCO CTT. Informação verificável em https://www.bportugal.pt/intermediariocreditofar/itinerantes-oportunidades-lda | A DECISÕES E SOLUÇÕES – INTERMEDIÁRIOS DE CRÉDITO, LDA está inscrita na Autoridade de Supervisão de Seguros e Fundos de Pensões, com a categoria de Agente de Seguros, sob o nº.409311648/3, com autorização para Ramos Vida e Não Vida, verificável em https://www.asf.com.pt. O mediador de seguros não assume a cobertura de riscos, não tem poderes para celebrar contratos em nome das seguradoras e não está autorizado a receber prémios para serem entregues às seguradoras.
     </div>
   </footer>
 
   <script>
-    // Atualiza o ano no rodapé
+    // Atualiza ano
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Envio do formulário para WhatsApp (igual ao original)
+    const form = document.getElementById('form-sim');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const tipo = document.getElementById('tipo').value.trim();
+      const valor = document.getElementById('valor').value.trim();
+      const msg = document.getElementById('mensagem').value.trim();
+      const txt = `Olá Rute, quero uma simulação.\n\nNome: ${nome}\nSolução: ${tipo}\nMontante/Objetivo: ${valor}\nMensagem: ${msg}`;
+      const url = `https://wa.me/351937428403?text=${encodeURIComponent(txt)}`;
+      window.open(url, '_blank');
+    });
 
     // Fade-in das secções
     const faders = document.querySelectorAll('.fade-section');
@@ -249,7 +303,6 @@
         }
       });
     }, { threshold: 0.2 });
-
     faders.forEach(section => observer.observe(section));
   </script>
 </body>
