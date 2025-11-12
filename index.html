@@ -55,6 +55,9 @@
     .lead{font-size:18px;color:#31433d;margin:0 0 22px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .hero-card{background:#fff;border:1px solid #e5efe8;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .kv{aspect-ratio:1/1;border-radius:var(--radius);background:radial-gradient(70% 70% at 50% 30%, #e5f3ec 0%, #e9f6ef 40%, #ffffff 100%);display:flex;align-items:center;justify-content:center}
+    .kv-inner{display:grid;gap:8px;justify-items:center}
+    .kv .big-phone{font-weight:800;font-size:28px;color:var(--brand)}
 
     /* GERAIS DE SECÇÕES */
     section{padding:56px 0}
@@ -145,11 +148,17 @@
         </div>
         <div style="margin-top:12px;color:#50625a">Nº de contacto: <strong>937 428 403</strong></div>
       </div>
-      <div class="hero-card kv" aria-hidden="true"></div>
+      <div class="hero-card kv">
+        <div class="kv-inner">
+          <img src="logo.png" alt="Logótipo DS" style="width:80px;height:80px;border-radius:14px;box-shadow:var(--shadow)">
+          <div class="big-phone">+351 937 428 403</div>
+          <div style="color:#395149">Setúbal e arredores</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SOBRE MIM (ANTES DOS SERVIÇOS) -->
+  <!-- SOBRE MIM -->
   <section id="sobre" class="fade-section">
     <div class="container about">
       <div>
@@ -157,7 +166,7 @@
         <p class="section-sub">Profissionalismo com proximidade — foco total no teu objetivo.</p>
         <p>Sou <strong>Rute Amaral</strong>, consultora de crédito na <strong>Decisões e Soluções — Setúbal</strong>. A minha missão é ajudar cada cliente a alcançar os seus objetivos financeiros com segurança, clareza e tranquilidade.</p>
         <p>Com experiência na área da intermediação de crédito, ofereço <strong>acompanhamento personalizado em todas as fases</strong> — desde a análise inicial até à aprovação final — garantindo que cada decisão é informada e vantajosa.</p>
-        <p>Trabalho diariamente com várias instituições bancárias para <strong>comparar condições</strong> e apresentar propostas adaptadas a cada perfil, <strong>sem custos para o cliente</strong>. Mais do que números, valorizo relações de confiança e processos simples, para que o caminho até ao teu objetivo seja mais leve e seguro.</p>
+        <p>Trabalho diariamente com várias instituições bancárias para <strong>comparar condições</strong> e apresentar propostas adaptadas a cada perfil, <strong>sem custos para o cliente</strong>.</p>
       </div>
       <figure class="profile">
         <img src="rute.jpg" alt="Rute Amaral — Consultora de Crédito" />
@@ -200,7 +209,7 @@
     </div>
   </section>
 
-  <!-- TESTEMUNHOS (REPOSTOS) -->
+  <!-- TESTEMUNHOS -->
   <section id="testemunhos" class="fade-section">
     <div class="container">
       <h2 class="section-title">O que os clientes dizem</h2>
@@ -213,7 +222,7 @@
     </div>
   </section>
 
-  <!-- SIMULAÇÃO (IGUAL À VERSÃO ORIGINAL) -->
+  <!-- SIMULAÇÃO -->
   <section id="simulacao" class="fade-section">
     <div class="container">
       <h2 class="section-title">Pedir simulação</h2>
@@ -272,38 +281,4 @@
       </div>
     </div>
     <div class="legal">
-      ITINERANTES OPORTUNIDADES LDA., licença AMI nº. 21119 | Intermediário de Crédito Vinculado, com o registo nº. 7076, autorizado pelo Banco de Portugal para a prestação de serviços de consultoria e autorizado para a prestação de serviços de intermediação de crédito (Apresentação ou proposta de contratos de crédito a consumidores; Assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos). Contratos de crédito abrangidos: Crédito à Habitação e Crédito aos Consumidores. Mutuantes ou grupos de mutuantes com quem mantém contrato de vinculação: BANCO BPI S.A., NOVO BANCO, S.A., ABANCA, UCI, CAIXA GERAL DE DEPÓSITOS, BANCO CTT. Informação verificável em https://www.bportugal.pt/intermediariocreditofar/itinerantes-oportunidades-lda | A DECISÕES E SOLUÇÕES – INTERMEDIÁRIOS DE CRÉDITO, LDA está inscrita na Autoridade de Supervisão de Seguros e Fundos de Pensões, com a categoria de Agente de Seguros, sob o nº.409311648/3, com autorização para Ramos Vida e Não Vida, verificável em https://www.asf.com.pt. O mediador de seguros não assume a cobertura de riscos, não tem poderes para celebrar contratos em nome das seguradoras e não está autorizado a receber prémios para serem entregues às seguradoras.
-    </div>
-  </footer>
-
-  <script>
-    // Atualiza ano
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Envio do formulário para WhatsApp (igual ao original)
-    const form = document.getElementById('form-sim');
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const nome = document.getElementById('nome').value.trim();
-      const tipo = document.getElementById('tipo').value.trim();
-      const valor = document.getElementById('valor').value.trim();
-      const msg = document.getElementById('mensagem').value.trim();
-      const txt = `Olá Rute, quero uma simulação.\n\nNome: ${nome}\nSolução: ${tipo}\nMontante/Objetivo: ${valor}\nMensagem: ${msg}`;
-      const url = `https://wa.me/351937428403?text=${encodeURIComponent(txt)}`;
-      window.open(url, '_blank');
-    });
-
-    // Fade-in das secções
-    const faders = document.querySelectorAll('.fade-section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    faders.forEach(section => observer.observe(section));
-  </script>
-</body>
-</html>
+      ITINERANTES OPORTUNIDADES LDA., licença AMI nº.
