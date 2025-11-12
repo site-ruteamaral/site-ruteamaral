@@ -59,7 +59,14 @@
     .kv-inner{display:grid;gap:8px;justify-items:center}
     .kv .big-phone{font-weight:800;font-size:28px;color:var(--brand)}
 
-    /* GERAIS DE SECÇÕES */
+    /* SOBRE MIM */
+    .about{display:grid;grid-template-columns:1fr 0.8fr;gap:24px;align-items:center;padding-top:30px}
+    .profile{background:#fff;border:1px solid #e5efe8;border-radius:20px;padding:10px;box-shadow:var(--shadow)}
+    .profile img{width:100%;border-radius:16px}
+    .caption{text-align:center;margin-top:6px;font-weight:600;color:#0f3d33}
+    .caption small{display:block;color:#6b7c74;font-weight:500}
+
+    /* SERVIÇOS */
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 8px}
     .section-sub{color:var(--muted);margin:0 0 24px}
@@ -67,26 +74,6 @@
     .card{background:#fff;border:1px solid #e5efe8;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .card h3{margin:0 0 8px;font-size:18px}
     .list{margin:0;padding-left:18px;color:#41524b}
-
-    /* FADE-IN nas secções */
-    .fade-section{opacity:0;transform:translateY(40px);transition:all 1s ease;}
-    .fade-section.visible{opacity:1;transform:translateY(0);}
-
-    /* SOBRE MIM */
-    .about{display:grid;grid-template-columns:1fr 0.8fr;gap:24px;align-items:center}
-    .profile{background:#fff;border:1px solid #e5efe8;border-radius:20px;padding:12px;box-shadow:var(--shadow)}
-    .profile img{
-      width:75%;
-      border-radius:20px;
-      margin:auto;
-      display:block;
-      border:3px solid var(--brand);
-      box-shadow:0 6px 16px rgba(15,61,51,0.25);
-      transition:transform 0.3s ease;
-    }
-    .profile img:hover{transform:scale(1.03);}
-    .caption{text-align:center;margin-top:8px;font-weight:600;color:#0f3d33}
-    .caption small{display:block;color:#6b7c74;font-weight:500}
 
     /* TESTEMUNHOS */
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -105,14 +92,12 @@
     .foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
     .legal{margin-top:20px;font-size:12px;line-height:1.5;color:#d7e6e0;text-align:justify;}
 
-    /* RESPONSIVO */
     @media (max-width: 980px){
       .hero-wrap{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .about{grid-template-columns:1fr}
       .testimonials{grid-template-columns:1fr}
       h1{font-size:34px}
-      .profile img{width:70%}
     }
   </style>
 </head>
@@ -159,7 +144,7 @@
   </section>
 
   <!-- SOBRE MIM -->
-  <section id="sobre" class="fade-section">
+  <section id="sobre">
     <div class="container about">
       <div>
         <h2 class="section-title">Sobre mim</h2>
@@ -176,7 +161,7 @@
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos" class="fade-section">
+  <section id="servicos">
     <div class="container">
       <h2 class="section-title">Serviços</h2>
       <p class="section-sub">Soluções de crédito com análise comparada entre bancos.</p>
@@ -210,7 +195,7 @@
   </section>
 
   <!-- TESTEMUNHOS -->
-  <section id="testemunhos" class="fade-section">
+  <section id="testemunhos">
     <div class="container">
       <h2 class="section-title">O que os clientes dizem</h2>
       <p class="section-sub">Algumas opiniões de quem já trabalhou comigo.</p>
@@ -223,7 +208,7 @@
   </section>
 
   <!-- SIMULAÇÃO -->
-  <section id="simulacao" class="fade-section">
+  <section id="simulacao">
     <div class="container">
       <h2 class="section-title">Pedir simulação</h2>
       <p class="section-sub">Preenche os dados e respondo o mais rápido possível. O pedido é enviado por WhatsApp.</p>
@@ -281,4 +266,4 @@
       </div>
     </div>
     <div class="legal">
-      ITINERANTES OPORTUNIDADES LDA., licença AMI nº.
+      ITINERANTES OPORTUNIDADES LDA., licença AMI nº. 21119 | Intermediário de Crédito Vinculado, com o registo nº. 7076, autorizado pelo Banco de Portugal para a prestação de serviços de consultoria e autorizado para a prestação de serviços de intermediação de crédito (Apresentação ou proposta de contratos de crédito a consumidores; Assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos). Contratos de crédito abrangidos: Crédito à Habitação e Crédito aos Consumidores. Mutuantes ou grupos de mutuantes com quem mantém contrato de vinculação: BANCO BPI S.A., NOVO BANCO, S.A.,  ABANCA
