@@ -482,3 +482,86 @@
           <textarea id="mensagem" placeholder="Diz-me como posso ajudar"></textarea>
 
           <
+          <!-- RGPD -->
+          <div class="checkbox-row">
+            <input type="checkbox" id="consent" required />
+            <label for="consent">Concordo ser contactado(a) para efeitos de simulação e proposta. (RGPD)</label>
+          </div>
+
+          <button class="btn btn-primary" type="submit" style="margin-top:12px; width:100%;">
+            Enviar por WhatsApp
+          </button>
+        </form>
+      </div>
+
+      <!-- COMO FUNCIONA -->
+      <div class="card" style="padding:24px;">
+        <h3>Como funciona</h3>
+        <ol>
+          <li>Recebo o teu pedido e analiso o objetivo.</li>
+          <li>Comparo propostas dos bancos parceiros.</li>
+          <li>Acompanho até à aprovação e assinatura.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    © <span id="year"></span> Rute Amaral — Decisões e Soluções Setúbal
+
+    <div class="legal">
+      ITINERANTES OPORTUNIDADES LDA., licença AMI nº. 21119 | Intermediário de Crédito Vinculado, com o registo nº. 7076, autorizado pelo Banco de Portugal para a prestação de serviços de consultoria e autorizado para a prestação de serviços de intermediação de crédito (Apresentação ou proposta de contratos de crédito a consumidores; Assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos). Contratos de crédito abrangidos: Crédito à Habitação e Crédito aos Consumidores. Mutuantes ou grupos de mutuantes com quem mantém contrato de vinculação: BANCO BPI S.A., NOVO BANCO, S.A., ABANCA, UCI, CAIXA GERAL DEPOSITOS, BANCO CTT informação verificável em https://www.bportugal.pt/intermediariocreditofar/itinerantes-oportunidades-lda
+
+      <br><br>
+
+      A DECISÕES E SOLUÇÕES – INTERMEDIÁRIOS DE CRÉDITO, LDA está inscrita na Autoridade de Supervisão de Seguros e Fundos de Pensões, com a categoria de Agente de Seguros, sob o nº.409311648/3, com autorização para Ramos Vida e Não Vida, verificável em https://www.asf.com.pt. 
+      O mediador de seguros não assume a cobertura de riscos, não tem poderes para celebrar contratos em nome das seguradoras e não está autorizado a receber prémios para serem entregues às seguradora.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tema (claro/escuro) com memória
+  const body = document.body;
+  const themeBtn = document.getElementById("toggle-theme");
+  
+  const savedTheme = localStorage.getItem("theme-rute");
+  if (savedTheme === "dark") body.classList.add("dark");
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      localStorage.setItem("theme-rute", body.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+
+  // Ano automático
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // WhatsApp redirect
+  document.getElementById("form-sim").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const tipo = document.getElementById("tipo").value.trim();
+    const valor = document.getElementById("valor").value.trim();
+    const msg = document.getElementById("mensagem").value.trim();
+
+    const texto =
+      "Olá Rute, quero uma simulação.\n\n" +
+      "Nome: " + nome + "\n" +
+      "Solução: " + tipo + "\n" +
+      "Montante / Objetivo: " + valor + "\n" +
+      "Mensagem: " + msg;
+
+    const url = "https://wa.me/351937428403?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank");
+  });
+</script>
+
+</body>
+</html>
