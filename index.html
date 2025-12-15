@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -161,6 +162,14 @@
     section{padding:40px 0;}
     .section-title{font-size:28px;margin-bottom:8px;}
     .section-sub{color:var(--muted);margin-bottom:24px;}
+    
+    /* ESPAÇOS ENTRE SECÇÕES ESPECÍFICAS - AJUSTE FINAL */
+    #testemunhos {
+        margin-top: -30px; /* Reduz espaço acima da secção de Testemunhos */
+    }
+    #simulacao {
+        margin-top: -30px; /* Reduz espaço acima da secção de Simulação */
+    }
 
     /* SOBRE MIM */
     .about{
@@ -313,6 +322,12 @@
     @media(max-width:900px){
       /* Ajuste o espaçamento para mobile também */
       section{padding:30px 0;}
+      
+      /* AJUSTE PARA MOBILE */
+      #testemunhos, #simulacao {
+          margin-top: -15px; /* Redução menor em mobile */
+      }
+
 
       .nav{
         flex-direction:column;
@@ -600,24 +615,20 @@
     window.open(url, "_blank");
   });
 
-  // LÓGICA DO AVISO DE COOKIES (Utiliza localStorage, mais fiável que cookies simples)
+  // LÓGICA DO AVISO DE COOKIES
   document.addEventListener("DOMContentLoaded", function() {
       const cookieBanner = document.getElementById('cookie-banner');
       const acceptButton = document.getElementById('accept-cookies');
+      // Usamos localStorage para lembrar a aceitação
       const accepted = localStorage.getItem('cookies-accepted-rute');
 
-      // Se não foi aceite, mostramos o banner
       if (!accepted) {
-          // Usamos 'flex' aqui, que é o estilo definido no CSS para aparecer
           cookieBanner.style.display = 'flex'; 
       }
 
-      // Lógica ao aceitar
       if (acceptButton) {
           acceptButton.addEventListener('click', function() {
-              // Guarda a preferência
               localStorage.setItem('cookies-accepted-rute', 'true');
-              // Esconde o banner
               cookieBanner.style.display = 'none';
           });
       }
