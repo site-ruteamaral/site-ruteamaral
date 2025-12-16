@@ -14,10 +14,10 @@
 
   <style>
     input[type="checkbox"] {
-  width: auto !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  transform: translateY(1px);
+      width: auto !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      transform: translateY(1px);
     }
     :root{
       --brand:#0f3d33;
@@ -53,25 +53,34 @@
       align-items:center;
       gap:16px;
     }
-    /* ALTERAÇÕES AQUI: LOGO E TEXTO */
+    /* LAYOUT DO LOGO ORIGINAL (HORIZONTAL) */
     .logo{
       display:flex;
       align-items:center;
-      justify-content:center; /* Centra o conteúdo do logo */
-      /* Remover o gap:12px para centrar a imagem, a menos que se queira a imagem à esquerda */
+      gap:12px; 
     }
     .logo img{
-      width:50px; /* Aumentado de 42px para 50px */
-      height:50px; /* Mantém a proporção */
+      width:42px; /* Revertido para o tamanho original */
+      height:42px; 
       border-radius:10px;
       box-shadow:var(--shadow);
-      margin: auto; /* Centra a imagem dentro do flex-container .logo */
+      margin: 0; 
     }
     .brand-title{
       color:var(--brand);
       font-weight:700;
-      display: none; /* Esconde a linha que continha o texto (Decisões e Soluções) */
+      display: block; /* Garante que o título principal do logo aparece */
     }
+    .brand-text { /* Container para o texto do logo */
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .brand-text small {
+      color: var(--muted);
+      margin-top: -3px;
+    }
+
     .contact-top{
       display:flex;
       gap:10px;
@@ -95,13 +104,14 @@
     .btn:hover{transform:translateY(-1px);}
     .btn-primary{background:var(--brand);color:#fff;}
     .btn-outline{background:#fff;border:1px solid #dbe7e0;color:var(--brand);}
+    }
+
 
     /* HERO */
     .hero{
       padding:72px 0;
       background:linear-gradient(180deg,#ffffff,#f2f7f4);
     }
-    /* >>> única alteração: colunas iguais e itens centrados <<< */
     .hero-wrap{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -170,10 +180,10 @@
     
     /* ESPAÇOS ENTRE SECÇÕES ESPECÍFICAS - AJUSTE FINAL */
     #testemunhos {
-        margin-top: -30px; /* Reduz espaço acima da secção de Testemunhos */
+        margin-top: -30px; 
     }
     #simulacao {
-        margin-top: -30px; /* Reduz espaço acima da secção de Simulação */
+        margin-top: -30px; 
     }
 
     /* SOBRE MIM */
@@ -290,7 +300,7 @@
       line-height:1.5;
     }
 
-    /* AVISO DE COOKIES - NOVO */
+    /* AVISO DE COOKIES */
     #cookie-banner {
         position: fixed;
         bottom: 0;
@@ -300,7 +310,7 @@
         color: white;
         padding: 15px 24px;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-        display: flex;
+        display: none; /* Inicia escondido */
         justify-content: space-between;
         align-items: center;
         z-index: 1000;
@@ -378,15 +388,18 @@
 
 <header>
   <div class="container nav">
-    <div class="logo">
+        <a href="#inicio" class="logo">
       <img src="logo.png" alt="Decisões e Soluções">
-      <div>
-        <div class="brand-title">Decisões e Soluções — Setúbal</div>
-        <small style="display: none;">Consultora de Crédito</small>       </div>
-    </div>
+      <div class="brand-text">
+        <div class="brand-title">Decisões e Soluções – Setúbal</div>
+        <small>Consultora de Crédito</small>
+      </div>
+    </a>
 
     <div class="contact-top">
-                  <a class="btn btn-primary" href="https://wa.me/351937428403?text=Olá%20Rute,%20quero%20uma%20análise%20financeira." target="_blank">WhatsApp</a>
+            <a class="btn btn-outline btn-contact-secondary" href="tel:+351937428403">Ligar</a>
+      <a class="btn btn-outline btn-contact-secondary" href="mailto:rute.amaral@ds.pt">Email</a>
+      <a class="btn btn-primary" href="https://wa.me/351937428403?text=Olá%20Rute,%20quero%20uma%20análise%20financeira." target="_blank">WhatsApp</a>
     </div>
   </div>
 </header>
@@ -395,8 +408,7 @@
   <div class="container hero-wrap">
     <div>
       <span class="badge">Atendimento personalizado • Resposta rápida</span>
-      <h1>Rute Amaral — Consultora de Crédito</h1>
-      <p class="lead">
+      <h1>Rute Amaral — Consultora de Crédito</h1>       <p class="lead">
         Simulações, comparação entre bancos e acompanhamento completo
         <strong>sem qualquer custo</strong>.
       </p>
@@ -436,6 +448,12 @@
           <a class="social-pill" href="https://www.instagram.com/ruteoliveiraamaral" target="_blank">
             <img src="instagram.png" class="social-icon-img" alt="Instagram">
             <span>Instagram</span>
+          </a>
+          <a class="social-pill" href="#" target="_blank">
+            <span>Facebook</span>
+          </a>
+          <a class="social-pill" href="#" target="_blank">
+            <span>LinkedIn</span>
           </a>
         </div>
       </div>
@@ -526,12 +544,11 @@
           <textarea id="mensagem" placeholder="Diz-me como posso ajudar"></textarea>
 
         
-          <div class="checkbox-row" style="gap:2px; margin-top:2px;">
-         <input type="checkbox" id="consent" required style="margin:0;"/>
-        <label for="consent" style="margin:0; padding:0;">
-          Concordo ser contactado(a) para efeitos de análise e proposta. 
-        </label>
-      </div>
+          <div class="checkbox-row" style="gap:2px; margin-top:8px;">             <input type="checkbox" id="consent" required style="margin:0;"/>
+            <label for="consent" style="margin:0; padding:0;">
+              Concordo ser contactado(a) para efeitos de análise e proposta. 
+            </label>
+          </div>
           <button class="btn btn-primary" type="submit" style="margin-top:12px; width:100%;">
             Enviar por WhatsApp
           </button>
@@ -572,20 +589,8 @@
 </div>
 
 <script>
-  // Tema (claro/escuro) com memória
-  const body = document.body;
-  const themeBtn = document.getElementById("toggle-theme");
+  // Tema (claro/escuro) com memória - REMOVIDO para simplicidade
   
-  const savedTheme = localStorage.getItem("theme-rute");
-  if (savedTheme === "dark") body.classList.add("dark");
-
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      localStorage.setItem("theme-rute", body.classList.contains("dark") ? "dark" : "light");
-    });
-  }
-
   // Ano automático
   document.getElementById("year").textContent = new Date().getFullYear();
 
